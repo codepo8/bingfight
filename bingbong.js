@@ -1,22 +1,37 @@
 /* Using the Bing Web Search API to get the numbers */
 
 var bingbong = function(){
-  var bingURL = 'http://api.bing.net/json.aspx?AppId=B59F3913692A46D75ED39BA8F472DF261C05B80C&Sources=Web&Web.Count=1&Adult=Off&Web.Options=DisableHostCollapsing+DisableQueryAlterations&JsonType=callback&jsonCallback=bingbong.incoming&Query='
-
-  var f = document.getElementById('f');
+  var bingURL = 'http://api.bing.net/json.aspx?AppId=B59F3913692A46D75ED39BA8F472DF261C05B80C&Sources=Web&Web.Count=1&Adult=Off&Web.Options=DisableHostCollapsing+DisableQueryAlterations&JsonType=callback&jsonCallback=bingbong.incoming&Query=',
+  results = [],val1,val2,
+  f = document.getElementById('f'),
+  s1 = document.getElementById('searchterm1'),
+  s2 = document.getElementById('searchterm2');
+  
+  if(window.location.hash.indexOf('-vs-')!==-1){
+    var chunks = window.location.hash.split('-vs-');
+    chunks[0] = chunks[0].replace('#','');
+    s1.value = chunks[0];
+    s2.value = chunks[1];
+    setload(chunks[0],chunks[1]);
+  };
+  
   f.addEventListener('submit',function(event){ /* yeah, f*ck you IE6 */
-    var val1 = document.getElementById('searchterm1').value;
-    var val2 = document.getElementById('searchterm2').value;
+    val1 = s1.value;
+    val2 = s2.value;
     if(val1 !== '' && val2 !== ''){
-      loadme(bingURL+val1);
-      loadme(bingURL+val2);
+      setload(val1,val2);
     } else {
-      alert('Please provide terms first, duh!')
+      alert('Please provide terms first, duh!');
     }
     event.preventDefault();
   },false);
-
-  var results = [];
+  
+  function setload(val1,val2){
+    loadme(bingURL+val1);
+    loadme(bingURL+val2);
+    window.location.hash = val1 + '-vs-' + val2;
+    
+  };
 
   function incoming(o){
     if(!o.SearchResponse.Errors){
@@ -30,7 +45,7 @@ var bingbong = function(){
     } else {
       alert('Bing made a boo-boo: ' + o.SearchResponse.Errors);
     }
-  }
+  };
 
   function paint(results){
     var out = '',max = 0,
@@ -56,14 +71,14 @@ var bingbong = function(){
     out += '</ul><div id="curtain"></div>';
     document.getElementById('output').innerHTML = out;
     results.length = 0;
-  }
+  };
 
   function loadme(url){
     var s = document.createElement('script');
     s.setAttribute('src',url);
     document.getElementsByTagName('head')[0].appendChild(s);
-  }
+  };
   
-  return{incoming:incoming} 
+  return{incoming:incoming};
 
 }();
