@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Engine Fight</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" href="searchfight.css" type="text/css" charset="utf-8">
+</head>
+<body>
+<header>
+  <h1>Search engine fight</h1>
+  <p>This is a demo of using CSS3 for graph animations. Loosely based on the famous <a href="http://googlefight.com/">Googlefight</a> and (as the Google API terms are going bonkers using the <a href="http://msdn.microsoft.com/en-us/library/dd251056.aspx">Bing websearch API</a>) it is only there to entertain.</p>
+  <p>Simply enter two terms in the fields below and make them fight to see which one has more results on the web.</p>
+</header>
+  <section>
+    <form id="f">
+      <div class="label"><label for="searchterm1">Fighter #1:</label><input type="text" id="searchterm1"></div><div class="label"><label for="searchterm2">Fighter #2:</label><input type="text" id="searchterm2"></div><div><input type="submit" value="Fight!"></div>
+    </form>
+  </section>
+  <section id="output"></section>
+<footer><p>Written by <a href="http://wait-till-i.com">Chris Heilmann</a> - <a href="http://twitter.com/codepo8">@codepo8</a></p></footer>
+  <script src="bingbong.js"></script>
+</body>
+</html>

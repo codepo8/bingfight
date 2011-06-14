@@ -1,0 +1,201 @@
+*{margin:0;padding:0;font-size:14px;}
+html{font-family:calibri,arial,sans-serif;background:#f8f8f8}
+
+h1{
+  color:#030;
+  margin:10px 0;
+  font-size:40px;
+}
+p{font-size:20px;padding-bottom:10px}
+section,header,footer{
+  display:block;
+  margin:0 auto 0 auto;
+  width:600px;
+}
+
+footer p{text-align:right}
+a{color:#369;text-decoration:none;font-size:100%}
+
+#output{
+  position:relative;
+  height:320px;
+  width:600px;
+  margin:1em auto;
+  box-shadow:4px 4px 10px rgba(0,0,0,.7);
+  border-radius:10px;
+  background:#665;
+}
+
+
+#output h2{
+  font-size:50px;
+  position:absolute;
+  left:30px;
+  top:100px;
+  opacity:0;
+  color:#fff;
+  text-shadow:1px 2px 1px rgba(0,0,0,.9);
+}
+
+#output ul{
+  height:300px;
+  width:590px;
+  overflow:hidden;
+  padding:0;
+  margin:0 0 0 10px;
+}
+#curtain{
+  background:#665;
+  width:600px;
+  position:absolute;
+  top:10px;
+  left:0;
+}
+#output li{
+  float:left;
+  width:270px;
+  height:290px;
+  margin:0 10px;
+  list-style:none;
+  background: #e6f0a3; /* Old browsers */
+ }
+
+ #output li span{
+  display:block;
+  margin-top:-1.5em;
+  color:#fff; 
+  font-weight:bold;
+  font-size:14px;
+ }
+ #output span strong{
+   color:lime;
+ }
+ #f{
+   overflow:hidden;
+   padding:0 0 3em 0;
+   background:#369;
+   border-radius:10px;
+   box-shadow:4px 4px 10px rgba(0,0,0,.7);
+ }
+ .label{float:left;width:50%;text-align:center}
+ label{display:block;font-size:20px;font-weight:bold;color:#fff}
+ input{font-size:25px;margin:5px 0;width:250px}
+
+ input[type=submit]{
+   text-align:center;
+   width:600px;
+   font-family:calibri,arial,sans-serif;
+   font-weight:bold;
+   border:none;
+   background:transparent;
+   font-size:40px;
+   color:lime;
+   text-shadow:1px 2px 1px rgba(0,0,0,.9);
+ }
+
+/* 
+  Gradients - all hail colorzilla:
+  http://www.colorzilla.com/gradient-editor/ 
+*/
+
+
+
+#output li{
+background: -moz-linear-gradient(top, #e6f0a3 0%, #d2e638 50%, #c3d825 51%, #dbf043 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6f0a3), color-stop(50%,#d2e638), color-stop(51%,#c3d825), color-stop(100%,#dbf043)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* Opera11.10+ */
+background: -ms-linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* IE10+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6f0a3', endColorstr='#dbf043',GradientType=0 ); /* IE6-9 */
+background: linear-gradient(top, #e6f0a3 0%,#d2e638 50%,#c3d825 51%,#dbf043 100%); /* W3C */
+}
+
+/* 
+  Transitions and animations
+  
+*/
+
+/* Submit button hover */
+
+input[type=submit]{
+  -moz-transition:all .5s;
+  -webkit-transition:all .5s;
+  -o-transition:all .5s;
+  transition:all .5s;
+}
+input[type=submit]:hover{
+  -webkit-transform:scale(2);
+  -moz-transform:scale(2);
+  -o-transform:scale(2);
+  transform:scale(2);
+}
+
+/* Reveal graphs */
+#curtain {
+  -moz-animation-delay:0;
+  -moz-animation-duration: 3s;
+  -moz-animation-name: reveal;
+  -moz-animation-fill-mode: none
+  -webkit-animation-delay:0;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: reveal;
+  -webkit-animation-fill-mode: none
+  -o-animation-delay:0;
+  -o-animation-duration: 3s;
+  -o-animation-name: reveal;
+  -o-animation-fill-mode: none
+}
+@-moz-keyframes reveal {
+  from {height:300px;}
+  to {height:0;}
+}
+@-o-keyframes reveal {
+  from {height:300px;}
+  to {height:0;}
+}
+@-webkit-keyframes reveal {
+  from {height:300px;}
+  to {height:0;}
+}
+@keyframes reveal {
+  from {height:300px;}
+  to {height:0;}
+}
+
+/* show winner */
+#output h2 {
+  
+  -moz-animation-delay:3s;
+  -moz-animation-duration: 3s;
+  -moz-animation-name: pop;
+  -moz-animation-fill-mode: both;
+
+  -webkit-animation-delay:3s;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-name: pop;
+  -webkit-animation-fill-mode: both;
+
+  -o-animation-delay:3s;
+  -o-animation-duration: 3s;
+  -o-animation-name: pop;
+  -o-animation-fill-mode: both;
+}
+@-moz-keyframes pop {
+  from {-moz-transform:scale(0);opacity:0;}
+  to {-moz-transform:scale(1);opacity:1}
+}
+@-o-keyframes pop {
+  0% {-webkit-transform:scale(.3);}
+  50% {-webkit-transform:scale(1);}
+  100% {-webkit-transform:scale(.3);}
+}
+
+@-webkit-keyframes pop {
+  from {-webkit-transform:scale(0);opacity:0;}
+  to {-webkit-transform:scale(1);opacity:1}
+}
+
+@keyframes pop {
+  0% {-webkit-transform:scale(0);}
+  100% {-webkit-transform:scale(1);}
+}
